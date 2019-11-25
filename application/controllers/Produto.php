@@ -15,12 +15,14 @@ class Produto extends CI_Controller{
 	public function index()
 	{
         
-
-      $dados['valor'] = $this->ProdutoModel->listar_todos_produtos();
-          
-  		$this->load->view('ProdutoDetail',$dados);
-    }
     
+    $dados['valor'] = $this->ProdutoModel->listar_todos_produtos();
+          
+      $this->load->view('ProdutoDetail',$dados);
+     
+  }
+
+
 
     public function view_produto()
 	{
@@ -47,8 +49,9 @@ class Produto extends CI_Controller{
     }
 
     public function Cadastrar(){
-        $nome = $_POST['nome'];
-        $preco = $_POST['preco'];
+
+        $nome = $_POST['Nome'];
+        $preco = $_POST['Preco'];
       
 
         $dados['msgAlert'] = "";
@@ -59,11 +62,11 @@ class Produto extends CI_Controller{
             Dados cadastrado com sucesso!  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
             <span aria-hidden='true'>&times;</span>
             </button></div>";
-            // $dados['valor'] = $this->UsuarioModel->listar_todos_usuarios();
+            $dados['valor'] = $this->ProdutoModel->listar_todos_produtos();
             $this->load->view('ProdutoDetail',$dados);    
           }else{
             $dados['msgAlert'] = "Erro ao salvar evento no banco de dados!";
-            // $dados['valor'] = $this->UsuarioModel->listar_todos_usuarios();
+            $dados['valor'] = $this->ProdutoModel->listar_todos_produtos();
             $this->load->view('ProdutoDetail',$dados);
           }
 

@@ -28,16 +28,14 @@
                                     <label for="cep">CEP: </label>
                                     <input type="text" name="cep" id="cep" class="form-control" value="<?php echo $val->Usuario_Cep;?>" autofocus required />
                                 </div>
+                               
                                 <div class="form-group">
-                                    <button id="btn_consulta" class="btn btn-success">Consultar</button>
+                                    <label for="rua_usuario">Rua:</label>
+                                    <input type="text" name="rua_usuario" id="rua_usuario" class="form-control" value="<?php echo $val->Usuario_Rua;?>"  required />
                                 </div>
                                 <div class="form-group">
-                                    <label for="rua">Rua:</label>
-                                    <input type="text" name="rua" id="rua" class="form-control" value="<?php echo $val->Usuario_Rua;?>"  required />
-                                </div>
-                                <div class="form-group">
-                                    <label for="bairro">Bairro:</label>
-                                    <input type="text" name="bairro" id="bairro" class="form-control" value="<?php echo $val->Usuario_Bairro;?>"  required />
+                                    <label for="bairro_usuario">Bairro:</label>
+                                    <input type="text" name="bairro_usuario" id="bairro_usuario" class="form-control" value="<?php echo $val->Usuario_Bairro;?>"  required />
                                 </div>
                                 <div class="form-group">
                                     <button id="btn_atualizar" class="btn btn-outline-primary">Atualizar</button>
@@ -52,5 +50,5 @@
 
         
 
-
+ <script src="<?=base_url();?>assets/js/UsuarioView.js"></script>
 <?php $this->load->view('template/footer'); ?>

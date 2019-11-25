@@ -47,26 +47,32 @@ class Usuario extends CI_Controller {
     }
 
     public function Cadastrar(){
-        $nome = $_POST['nome'];
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
+
+      
+        $nome = $_POST['Nome'];
+        $email = $_POST['Email'];
+        $senha = $_POST['Senha'];
         $cep = $_POST['cep'];
-        $rua = $_POST['rua'];
-        $bairro = $_POST['bairro'];
+        $rua = $_POST['rua_usuario'];
+        $bairro = $_POST['bairro_usuario'];
+
 
         $dados['msgAlert'] = "";
         
         $res = $this->UsuarioModel->inserirUsuario($nome, $senha,$email,$cep,$rua,$bairro);
-          if($res){
+          if(is_string($res)){
             $dados['msgAlert'] = "<div class='alert alert-success' role='alert'>
-            Dados cadastrado com sucesso!  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-            <span aria-hidden='true'>&times;</span>
+            Erro no Cadastro.  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                  <span aria-hidden='true'>&times;</span>
             </button></div>";
-            // $dados['valor'] = $this->UsuarioModel->listar_todos_usuarios();
+            $dados['valor'] = $this->UsuarioModel->listar_todos_usuarios();
             $this->load->view('UsuarioDetail',$dados);    
           }else{
-            $dados['msgAlert'] = "Erro ao salvar evento no banco de dados!";
-            // $dados['valor'] = $this->UsuarioModel->listar_todos_usuarios();
+            $dados['msgAlert'] = "  <div class='alert alert-success' role='alert'>
+            Usuario cadastrada com Sucesso!  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button></div>";
+            $dados['valor'] = $this->UsuarioModel->listar_todos_usuarios();
             $this->load->view('UsuarioDetail',$dados);
           }
 
@@ -121,8 +127,8 @@ class Usuario extends CI_Controller {
         $email = $_POST['Email'];
         $senha = $_POST['Senha'];
         $cep = $_POST['cep'];
-        $rua = $_POST['rua'];
-        $bairro = $_POST['bairro'];
+        $rua = $_POST['rua_usuario'];
+        $bairro = $_POST['bairro_usuario'];
         
    
       

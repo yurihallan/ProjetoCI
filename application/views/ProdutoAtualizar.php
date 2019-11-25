@@ -3,6 +3,7 @@
 
 
 
+
 <div class="container">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -10,7 +11,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="col-md-4">
-                    <form action="<?php echo base_url(); ?>index.php/Produto/update" method="post">
+                        <form action="<?php echo base_url(); ?>index.php/Produto/update" method="post">
                             <?php foreach($valor as $val): ?>
                                 <div class="form-group">
                                     <label for="cep">Nome: </label>
@@ -26,6 +27,7 @@
                                     <button id="btn_atualizar" class="btn btn-outline-primary">Atualizar</button>
                                 </div>
                             <?php endforeach; ?>
+                        </form>    
                     </div>
                 </div>
             </div>
@@ -35,4 +37,5 @@
         
 
 
+ 
 <?php $this->load->view('template/footer'); ?>

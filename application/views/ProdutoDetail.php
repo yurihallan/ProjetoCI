@@ -1,5 +1,6 @@
 <?php $this->load->view('template/header'); ?>
 
+
 <h2>Produtos</h2>
 
 <?php if(isset($msgAlert)): echo  $msgAlert; endif?> 
@@ -43,4 +44,5 @@
 
 
 
+<script src="<?=base_url();?>assets/js/ProdutoView.js"></script>
 <?php $this->load->view('template/footer'); ?>

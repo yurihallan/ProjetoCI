@@ -60,4 +60,6 @@ class ProdutoModel extends CI_Model{
     }
 
 
+
+
 }

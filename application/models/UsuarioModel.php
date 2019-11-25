@@ -56,4 +56,21 @@ class UsuarioModel extends CI_Model{
     }
 
 
+    function validacao($email,$senha){
+        $query = $this->db->query("
+        
+                SELECT     
+                u.`Usuario_Senha`,
+                u.`Usuario_Email`
+                
+            FROM `Mercado`.`USUARIOS` u
+            where u.Usuario_Email = '$email'
+            and u.Usuario_Senha = '$senha';
+        ");
+        return $query;
+    }
+
+
+
+   
 }
