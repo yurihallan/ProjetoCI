@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Usuario extends CI_Controller {
 
 	function __construct(){
-        parent::__construct();
-		$this->load->helper('form', 'functions', 'form_validation','url');
+    parent::__construct();
+		
 		$this->load->model('UsuarioModel');
 		$this->load->database();
 		
@@ -94,27 +94,28 @@ class Usuario extends CI_Controller {
 
 
     function Deletar(){
-      $id = $_GET['id'];
 
+      $id = $_GET['id'];
       $dados['msgAlert'] = "";
         
       $retun = $this->UsuarioModel->Deletar_Usuario($id);
-        if (is_string($retun)) {
+
+        if (isset($retun)) {
          
           $dados['msgAlert'] = "  <div class='alert alert-danger' role='alert'>
           Registro possui dependentes. Não é Possivel excluir.  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
           <span aria-hidden='true'>&times;</span>
           </button></div>";
           $dados['valor'] = $this->UsuarioModel->listar_todos_usuarios();
-           $this->load->view('UsuarioDetail',$dados);
-      } else {
-        $dados['msgAlert'] = "  <div class='alert alert-success' role='alert'>
-        Usuario Deletado com Sucesso!  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-        <span aria-hidden='true'>&times;</span>
-        </button></div>";
-        $dados['valor'] = $this->UsuarioModel->listar_todos_usuarios();
-        $this->load->view('UsuarioDetail',$dados);
-      }
+          $this->load->view('UsuarioDetail',$dados);
+        } else {
+          $dados['msgAlert'] = "  <div class='alert alert-success' role='alert'>
+          Usuario Deletado com Sucesso!  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+          <span aria-hidden='true'>&times;</span>
+          </button></div>";
+          $dados['valor'] = $this->UsuarioModel->listar_todos_usuarios();
+          $this->load->view('UsuarioDetail',$dados);
+        }
         
     }
 

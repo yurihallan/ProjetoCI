@@ -44,5 +44,5 @@
 
 
 
-<script src="<?=base_url();?>assets/js/ProdutoView.js"></script>
+
 <?php $this->load->view('template/footer'); ?>

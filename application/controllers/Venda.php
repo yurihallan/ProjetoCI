@@ -5,7 +5,7 @@ class Venda extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
-		$this->load->helper('form', 'functions');
+		
 		$this->load->model('VendaModel');
 		$this->load->database();
 	}

@@ -45,8 +45,12 @@ class UsuarioModel extends CI_Model{
 
 
     function Deletar_Usuario($id){
-        $this->db->where('Id_Usuario', $id);
-        return $this->db->delete('USUARIOS');
+       
+         $this->db->where('Id_Usuario', $id);
+         $query = $this->db->delete('USUARIOS');
+       return $query['Error Code'];
+        
+
 
     }
 

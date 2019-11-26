@@ -5,7 +5,7 @@ class Produto extends CI_Controller{
 	
 	function __construct(){
         parent::__construct();
-		$this->load->helper('form', 'functions', 'form_validation','url');
+		
 		$this->load->model('ProdutoModel');
 		$this->load->database();
 		
